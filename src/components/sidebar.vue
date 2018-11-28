@@ -82,7 +82,8 @@
     },
   };
 </script>
-<style>
+
+<style scoped>
   .sideBar {
     background-color: rgb(84, 92, 100);
     position: fixed;
@@ -90,6 +91,7 @@
     top: 60px;
     height: 100%;
     overflow-y: scroll;
+    text-align: center;
   }
   .sideBar::-webkit-scrollbar {
       display: none;
