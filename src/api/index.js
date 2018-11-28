@@ -6,11 +6,11 @@ let baseURL = ''
 
 // 环境的切换
 if (process.env.NODE_ENV === 'development') {
-  baseURL = 'https://easy-mock.com/mock/5bfc161b791edf0246129e75/v1/'
+  baseURL = 'https://www.apiopen.top/'
 } else if (process.env.NODE_ENV === 'debug') {
   baseURL = ''
 } else if (process.env.NODE_ENV === 'production') {
-  baseURL = 'http://api.123dailu.com/'
+  baseURL = 'https://easy-mock.com/mock/5bfc161b791edf0246129e75/v1/'
 }
 
 // 当创建实例的时候配置默认配置
@@ -73,60 +73,58 @@ function filterNull (o) {
  * @param {*} succes
  * @param {*} failure
  */
-function apiAxios (method, url, params, success, failure) {
-  if (params) {
-    params = filterNull(params)
-  }
-  instance({
-    method: method,
-    url: url,
-    data: method === 'POST' || method === 'PUT' ? params : null,
-    params: method === 'GET' || method === 'DELETE' ? params : null
-  }).then(res => {
-    if (res.data.code === 200) {
-      Message({
-        message: res.data.msg,
-        type: 'success',
-        showClose: true
-      })
-      if (success) {
-        success(res.data)
-      }
-    } else {
-      if (failure) {
-        failure(res.data)
+function apiAxios (method, url, params) {
+  return new Promise((resolve, reject) => {
+    if (params) {
+      params = filterNull(params)
+    }
+    instance({
+      method: method,
+      url: url,
+      data: method === 'POST' || method === 'PUT' ? params : null,
+      params: method === 'GET' || method === 'DELETE' ? params : null
+    }).then(res => {
+      if (res.data.code === 200) {
+        Message({
+          message: res.data.msg,
+          type: 'success',
+          showClose: true
+        })
+        resolve(res.data)
       } else {
         Message({
           message: res.data.msg,
           type: 'warning',
           showClose: true
         })
+        reject(res.data)
       }
-    }
-  }).catch(err => {
-    let res = err.response
-    if (err) {
-      Message({
-        message: 'api error, HTTP CODE: ' + res.status,
-        type: 'error',
-        showClose: true
-      })
-    }
+    }).catch(err => {
+      let res = err.response
+      if (err) {
+        Message({
+          message: 'api error, HTTP CODE: ' + res.status,
+          type: 'error',
+          showClose: true
+        })
+      }
+      reject(err)
+    })
   })
 }
 
 // 返回在vue模板中的调用接口
 export default {
-  get: function (url, params, success, failure) {
-    return apiAxios('GET', url, params, success, failure)
+  get: (url, params) => {
+    return apiAxios('GET', url, params)
   },
-  post: function (url, params, success, failure) {
-    return apiAxios('POST', url, params, success, failure)
+  post: (url, params) => {
+    return apiAxios('POST', url, params)
   },
-  put: function (url, params, success, failure) {
-    return apiAxios('PUT', url, params, success, failure)
+  put: (url, params) => {
+    return apiAxios('PUT', url, params)
   },
-  delete: function (url, params, success, failure) {
-    return apiAxios('DELETE', url, params, success, failure)
+  delete: (url, params) => {
+    return apiAxios('DELETE', url, params)
   }
 }

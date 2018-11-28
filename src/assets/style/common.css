@@ -4,6 +4,21 @@
     padding: 0;
     margin: 0;
 }
+.text-right {
+  text-align: right !important;
+}
+.text-center {
+  text-align: center !important;
+}
+a{
+    text-decoration: none;
+}
+.fs20{
+    font-size: 20px;
+}
+.fs24 {
+  font-size: 24px;
+}
 
 /* 滚动条兼容 */
 ::-webkit-scrollbar {

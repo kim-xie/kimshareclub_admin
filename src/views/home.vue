@@ -27,13 +27,21 @@
         siderWidth: 200,
       };
     },
+    created() {
+      this.apiTest()
+    },
     methods: {
-      siderWidthChange: function(isCollapse) {
+      siderWidthChange(isCollapse) {
         if(isCollapse){
           this.siderWidth = 65;
         }else{
           this.siderWidth = 200;
         }
+      },
+      apiTest(){
+        this.$http.get('/').then(res => {
+          console.log(res)
+        })
       }
     },
     events: {
