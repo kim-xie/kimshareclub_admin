@@ -46,3 +46,7 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
         resources: path.resolve(__dirname, '../src/assets/style/element-variables.scss') // 需要全局引入的文件
       }
     }),
+10、安装vue-i18n国际化
+    npm i vue-i18n -D
+    配置i18n下的语言包等加载入口
+    配置main.js的i18n入口
