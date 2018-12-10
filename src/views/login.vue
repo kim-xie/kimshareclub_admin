@@ -43,7 +43,7 @@
 					</div>
 
 					<div class="flex-col-c">
-						<a href="javascript:" class="txt2">立即注册</a>
+						<a href="javascript:" class="txt2">{{$t('navbar.welcome')}} 立即注册</a>
 					</div>
 				</form>
 			</div>
@@ -59,7 +59,10 @@
             }
         },
         mounted () {
-
+           
+        },
+        created () {
+            console.log(this.$i18n.t('navbar.welcome'))
         },
         methods: {
             submitForm(formName) {
