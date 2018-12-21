@@ -8,7 +8,9 @@
         <el-aside v-bind:style="{ width: siderWidth + 'px' }" class="sider">
           <SideBar @siderOpen="siderWidthChange"></SideBar>
         </el-aside>
-        <el-main class="main">Main</el-main>
+        <el-main class="main primaryColor">
+          <el-button type="primary">主要按钮</el-button>
+        </el-main>
       </el-container>
     </el-container>
   </div>
@@ -28,7 +30,7 @@
       };
     },
     created() {
-      this.apiTest()
+
     },
     methods: {
       siderWidthChange(isCollapse) {
@@ -38,11 +40,11 @@
           this.siderWidth = 200;
         }
       },
-      apiTest(){
-        this.$http.get('/').then(res => {
-          console.log(res)
-        })
-      }
+      // apiTest(){
+      //   this.$http.get('/').then(res => {
+      //     console.log(res)
+      //   })
+      // }
     },
     events: {
       // siderWidthChange: function(isCollapse) {
@@ -62,6 +64,6 @@
     overflow: hidden;
   }
   .main{
-    background: $--color-primary;
+    // background: $--color-primary;
   }
 </style>

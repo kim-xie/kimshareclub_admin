@@ -6,7 +6,7 @@ let baseURL = ''
 
 // 环境的切换
 if (process.env.NODE_ENV === 'development') {
-  baseURL = 'https://www.apiopen.top/'
+  baseURL = ''
 } else if (process.env.NODE_ENV === 'debug') {
   baseURL = ''
 } else if (process.env.NODE_ENV === 'production') {

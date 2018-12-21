@@ -12,7 +12,7 @@
 
       <el-col :span="6">
         <div class="header-right">
-
+          <theme></theme>
         </div>
       </el-col>
     </el-row>
@@ -20,13 +20,16 @@
 </template>
 
 <script>
+  import theme from './theme.vue'
   export default {
     data() {
       return {
         activeIndex: "2",
-        activeIndex2: "2",
-        color1: "#409EFF"
+        activeIndex2: "2"
       };
+    },
+    components: {
+      theme
     },
     methods: {
       handleSelect(key, keyPath) {
