@@ -8,7 +8,7 @@
         <el-aside v-bind:style="{ width: siderWidth + 'px' }" class="sider">
           <SideBar @siderOpen="siderWidthChange"></SideBar>
         </el-aside>
-        <el-main class="main primaryColor">
+        <el-main class="main">
           <el-button type="primary">主要按钮</el-button>
         </el-main>
       </el-container>
@@ -62,8 +62,5 @@
   .header{
     background-color: rgb(84, 92, 100);
     overflow: hidden;
-  }
-  .main{
-    // background: $--color-primary;
   }
 </style>

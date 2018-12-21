@@ -51,6 +51,6 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
     配置i18n下的语言包等加载入口
     配置main.js的i18n入口
 
-11、切换主题色
+11、切换主题色(不能全局引用scss)
     npm install css-color-function  
     npm install object-assign
