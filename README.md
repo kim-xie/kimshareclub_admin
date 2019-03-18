@@ -41,10 +41,10 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 9、在build/utils.js下引入全局scss文件
     // scss: generateLoaders('sass'),
     scss: generateLoaders('sass').concat({
-      loader: 'sass-resources-loader',
-      options: {
-        resources: path.resolve(__dirname, '../src/assets/style/element-variables.scss') // 需要全局引入的文件
-      }
+        loader: 'sass-resources-loader',
+        options: {
+            resources: path.resolve(__dirname, '../src/assets/style/element-variables.scss') // 需要全局引入的文件
+        }
     }),
 10、安装vue-i18n国际化
     npm i vue-i18n -D
@@ -52,5 +52,5 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
     配置main.js的i18n入口
 
 11、切换主题色(不能全局引用scss)
-    npm install css-color-function  
+    npm install css-color-function
     npm install object-assign
