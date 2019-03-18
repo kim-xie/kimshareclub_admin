@@ -43,9 +43,6 @@
       theme
     },
     methods: {
-      handleSelect(key, keyPath) {
-        console.log(key, keyPath);
-      },
       selectLang(val){
         this.lang = val === 'en' ? '英文' : '中文';
         localStorage.setItem('lang',val);

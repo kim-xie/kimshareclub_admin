@@ -17,7 +17,7 @@ if (process.env.NODE_ENV === 'development') {
 let instance = axios.create({
   baseURL: baseURL,
   timeout: 3000,
-  withCredentials: true // 支持跨域访问
+  withCredentials: true // 支持跨域访问,允许携带cookies
 })
 
 // 当实例创建时候修改配置
