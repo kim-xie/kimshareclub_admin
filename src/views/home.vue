@@ -9,7 +9,7 @@
           <SideBar @siderOpen="siderWidthChange"></SideBar>
         </el-aside>
         <el-main class="main">
-          <el-button type="primary">主要按钮</el-button>
+          <el-button type="primary">{{$t('dashboard.primaryBtn')}}</el-button>
         </el-main>
       </el-container>
     </el-container>

@@ -8,11 +8,21 @@
           </a>
         </div>
       </el-col>
-      <el-col :span="12"></el-col>
+      <el-col :span="12">
+        <div class="header-nav">
+          <el-button>导航菜单</el-button>
+        </div>
+      </el-col>
 
       <el-col :span="6">
         <div class="header-right">
           <theme></theme>
+        </div>
+        <div class="header-lang">
+          <el-radio-group v-model="lang">
+            <el-radio-button size="small" label="中文" @click.native="selectLang('zh_CN')"></el-radio-button>
+            <el-radio-button size="small" label="英文" @click.native="selectLang('en')"></el-radio-button>
+          </el-radio-group>
         </div>
       </el-col>
     </el-row>
@@ -25,7 +35,8 @@
     data() {
       return {
         activeIndex: "2",
-        activeIndex2: "2"
+        activeIndex2: "2",
+        lang: localStorage.getItem('lang')==='en' ? '英文' : '中文'
       };
     },
     components: {
@@ -34,6 +45,15 @@
     methods: {
       handleSelect(key, keyPath) {
         console.log(key, keyPath);
+      },
+      selectLang(val){
+        this.lang = val === 'en' ? '英文' : '中文';
+        localStorage.setItem('lang',val);
+        this.$i18n.locale = localStorage.getItem('lang');
+        this.$message({
+          message: 'Language Switch Success!',
+          type: 'success'
+        })
       }
     }
   };
@@ -56,6 +76,10 @@
     vertical-align: middle;
   }
   .header-right{
+    float: right;
+    margin: 10px;
+  }
+  .header-lang{
     float: right;
   }
   .el-badge__content.is-fixed{

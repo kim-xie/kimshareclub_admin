@@ -1,7 +1,7 @@
- <!-- 切换主题色  -->
+<!-- 切换主题色  -->
 <template>
-	<div>
-		<el-color-picker  @change="colorChange" v-model="colors.primary" ></el-color-picker>
+	<div class="themeWrap">
+		<el-color-picker  @change="colorChange" v-model="colors.primary"></el-color-picker>
 	</div>
 </template>
 <script>
@@ -26,8 +26,8 @@ export default {
 	},
 	methods: {
 		colorChange(e) {
-            if(!e)return;
-            localStorage.setItem('color',e)
+			if(!e)return;
+			localStorage.setItem('color',e)
 			this.primaryColor = this.colors.primary;
 			this.colors = objectAssign(
 				{},
@@ -70,8 +70,8 @@ export default {
 				) {
 					// 调用本地的如果拿不到会得到html,html是不行的
 					if (request.response && !/DOCTYPE/gi.test(request.response)) {
-                        that.originalStyle = that.getStyleTemplate(request.response);
-                        that.writeNewStyle()
+						that.originalStyle = that.getStyleTemplate(request.response);
+						that.writeNewStyle()
 					} else {
 						that.originalStyle = "";
 					}
@@ -104,9 +104,9 @@ export default {
 	},
 	mounted() {
 		// 默认从线上官方拉取最新css,2秒钟后做一个检查没有拉到就从本地在拉下
-        let that = this;
-        // 如果是记住用户的状态就需要，在主题切换的时候记录颜色值，在下次打开的时候从新赋值
-        this.colors.primary = localStorage.getItem('color')||this.colors.primary//例如
+		let that = this;
+		// 如果是记住用户的状态就需要，在主题切换的时候记录颜色值，在下次打开的时候从新赋值
+		this.colors.primary = localStorage.getItem('color')||this.colors.primary//例如
 		this.getIndexStyle(this.cssUrl[0]);
 		setTimeout(function() {
 			if (that.originalStyle) {
@@ -122,5 +122,8 @@ export default {
 	}
 };
 </script>
-<style>
+<style lang="scss" scoped>
+	.themeWrap{
+		overflow: hidden;
+	}
 </style>
