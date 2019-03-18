@@ -8,14 +8,14 @@ export default {
     },
     getSessionStorage: (key) => {
         if (window.sessionStorage) {
-        sessionStorage.getItem(key)
+            sessionStorage.getItem(key)
         } else {
         console.log('Your browser does not support sessionStorage')
         }
     },
     removeSessionStorage: (key) => {
         if (window.sessionStorage) {
-        sessionStorage.removeItem(key)
+            sessionStorage.removeItem(key)
         } else {
         console.log('Your browser does not support sessionStorage')
         }

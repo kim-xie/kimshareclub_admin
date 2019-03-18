@@ -5,10 +5,10 @@
     margin: 0;
 }
 .text-right {
-  text-align: right !important;
+    text-align: right !important;
 }
 .text-center {
-  text-align: center !important;
+    text-align: center !important;
 }
 a{
     text-decoration: none;
@@ -17,7 +17,7 @@ a{
     font-size: 20px;
 }
 .fs24 {
-  font-size: 24px;
+    font-size: 24px;
 }
 
 /* 滚动条兼容 */
