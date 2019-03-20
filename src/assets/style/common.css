@@ -19,6 +19,19 @@ a{
 .fs24 {
     font-size: 24px;
 }
+.hidden{
+    display: none;
+}
+.pos{
+    position: relative;
+}
+input:focus,
+textarea:focus {
+    outline: none;
+}
+input::-ms-clear {
+    display: none;
+}
 
 /* 滚动条兼容 */
 ::-webkit-scrollbar {
